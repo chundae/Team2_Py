@@ -3,7 +3,7 @@ from data_filter import filter_data
 from data_resample import resample_data
 from visualizer import plot_multiple_series, plot_single_series
 from matplotlib import font_manager, rc
-
+import pandas as pd
 
 # 폰트 설정
 def set_font():
@@ -26,7 +26,6 @@ def main(file_path, start_date, end_date, currency, frequency):
 
     # 1. 데이터 불러오기
     data = load_and_preprocess_data(file_path)
-
     # 2. 통화 선택 및 필터링
     if currency == 'JPY':
         currency_columns = ['원/일본엔(100엔)']
@@ -61,8 +60,8 @@ if __name__ == "__main__":
     file_path = 'Exchange.csv'
 
     # 사용자 입력(시작/종료일, 통화 선택, 분류 단위 선택)
-    start_date = input("시작 날짜를 입력하세요 (예: 1980-01-01): ")
-    end_date = input("종료 날짜를 입력하세요 (예: 2024-06-30): ")
+    start_date = input("시작 날짜를 입력하세요 (MIN: 1980-01-01): ")
+    end_date = input("종료 날짜를 입력하세요 (MAX: 2024-06-30): ")
     currency = input("통화를 선택하세요 (JPY, USD, 또는 ALL): ")
     frequency = input("데이터 분류 단위를 선택하세요 (연단위: A, 분기단위: Q): ")
 

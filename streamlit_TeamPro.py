@@ -5,26 +5,11 @@ from data_resample import resample_data  # 데이터 리샘플링 함수
 from visualizer import plot_multiple_series, plot_single_series  # 시각화 함수
 from Quarterly import process_exchange_data, plot_exchange_rate
 from matplotlib import font_manager, rc  # 폰트 설정
-from matplotlib import pyplot as plt
-# '''
-# 웹페이시 시작 코드
-# streamlit run streamlit_TeamPro.py
-# '''
 
 st.set_page_config(layout="wide")
-st.markdown("""
-<style>
-.st-ca st-af st-c7{
-    width: 100%;
-}
-.svg-container {
-    width: 100%;
-}
-</style>
-""", unsafe_allow_html=True)
+
 
 st.sidebar.title('Team2_Project')
-# st.set_page_config(layout="wide")
 
 currency = st.sidebar.selectbox('currency', ['USD/KRW', 'JPY/KRW', 'ALL'])
 start_date = st.sidebar.date_input('Start Date', value=None, min_value=None, max_value=None)
